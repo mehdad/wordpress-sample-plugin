@@ -10,3 +10,13 @@ Text Domain: wp-sample-plugin
 Domain Path: /languages
 */
 
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+
+function ssz_sample_plugin_load_textdomain() {
+    $url = basename( dirname( __FILE__ ) ) . '/languages';
+    load_plugin_textdomain('wp-sample-plugin', false, $url);
+}
+
+add_action( 'init', 'ssz_sample_plugin_load_textdomain' );
